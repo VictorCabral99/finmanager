@@ -1,55 +1,49 @@
-# FinManager API
+# FinManager
 
-API REST para gestão financeira pessoal — controle de receitas, despesas e acompanhamento do orçamento. É o backend do ecossistema **FinManager** (frontend em [finmanager-web](https://github.com/VictorCabral99/finmanager-web)).
-
-## Stack
-
-- **Java 21**
-- **Spring Boot 3.2** (Web, Data JPA)
-- **Hibernate** + **SQLite**
-- **Lombok**
-- **Maven** (com wrapper `mvnw`)
-
-## Pré-requisitos
-
-- JDK 21+
-- Maven 3.9+ (ou use o wrapper incluído)
-
-## Como rodar
-
-```bash
-# Linux / macOS
-./mvnw spring-boot:run
-
-# Windows
-mvnw.cmd spring-boot:run
-```
-
-A aplicação sobe por padrão em `http://localhost:8080`.
-
-## Build
-
-```bash
-./mvnw clean package
-java -jar target/finmanager-0.0.1-SNAPSHOT.jar
-```
-
-## Testes
-
-```bash
-./mvnw test
-```
+Gestão financeira pessoal — controle de receitas, despesas e orçamentos. Este repositório unifica as três partes do produto em um único monorepo.
 
 ## Estrutura
 
 ```
-src/main/java/br/com/finmanager
-├── config         # Configurações da aplicação
-├── controllers    # Endpoints REST
-├── models         # Entidades e enums de domínio
-├── repositories   # Acesso a dados (JPA)
-└── services       # Regras de negócio
+finmanager/
+├── backend/   # API REST — Java 21 + Spring Boot 3 + JPA + SQLite
+├── web/       # App web — Angular 17 + TypeScript
+└── mobile/    # App mobile — React Native
 ```
+
+## Backend (`backend/`)
+
+API REST em Spring Boot.
+
+```bash
+cd backend
+./mvnw spring-boot:run     # sobe a API (porta padrão 8080)
+./mvnw test                # testes
+```
+
+## Web (`web/`)
+
+SPA em Angular.
+
+```bash
+cd web
+npm install
+npm start                  # ng serve em http://localhost:4200
+```
+
+## Mobile (`mobile/`)
+
+App em React Native.
+
+```bash
+cd mobile
+npm install
+npm run android            # ou: npm run ios
+```
+
+## Histórico
+
+O monorepo preserva o histórico de commits do backend (a parte mais desenvolvida). Web e mobile foram incorporados a partir de seus repositórios originais.
 
 ## Licença
 
